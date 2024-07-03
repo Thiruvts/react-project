@@ -10,7 +10,7 @@ const Content = () => {
         console.log(e)
     }
     const handleClick2 = (name) =>{
-        console.log(`Thanks for the subscribes ${name}`)
+        console.log(`Thanks for the subscribe ${name}`)
     }
   return (
     <main>
