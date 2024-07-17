@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { FaTrashRestore } from "react-icons/fa";
+
 
 const Content = () => {
   /*const [name, setName] = useState("Earn");
@@ -33,7 +35,7 @@ const Content = () => {
       const [items, setItems] = useState(
         [
         {id:1,
-        checked: true,
+        checked: false,
         item: "codeing1"
         },
         {id:2,
@@ -46,6 +48,11 @@ const Content = () => {
         }
         
         ])
+
+        const handlecheck = (id) =>{
+          const listitem = items.map((item) => item.id===id?{...item, checked:!item.checked} : item)
+          setItems(listitem)
+        }
         
   return (
     <main>
@@ -59,13 +66,14 @@ const Content = () => {
         <button onClick={incrementFunction()}>+</button>*/}
         <ul>
 {items.map((item)=>(
-<li>
-<input type="checkbox" checked={item.checked} />
+<li className='item' key={item.id}>
+<input type="checkbox" onChange={() => handlecheck(item.id)} checked={item.checked} />
 <label>{item.item}</label>
-<button>Delete</button>
+<FaTrashRestore 
+role = "button" tabIndex="0" />
 </li>
 ))}
-
+ 
 </ul>
 
 
